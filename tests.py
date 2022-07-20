@@ -27,3 +27,17 @@ def test_delay_long():
 
     assert duration > 3
     assert result == 5
+
+
+def test_assure_functools_wraps():
+    @delay()
+    def my_sum(a, b):
+        """Docstring"""
+        return a + b
+
+    assert my_sum.__name__ == "my_sum"
+    assert my_sum.__doc__ is not None
+
+
+def test_docstrings():
+    assert delay.__doc__ is not None
