@@ -37,3 +37,10 @@ def my_sum(a, b):
 
 my_sum(2, b=3)
 ```
+
+## Lokální testování
+Funkčnost řešení ověříte následujícím příkazem:
+
+```bash
+pytest tests.py
+```
