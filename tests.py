@@ -39,5 +39,19 @@ def test_assure_functools_wraps():
     assert my_sum.__doc__ is not None
 
 
+def test_assure_single_function_call():
+    """Tests if decorated function is not called multiple times."""
+    values = [1, 2, 3]
+
+    @delay()
+    def remove_last_value(values):
+        """Docstring"""
+        del values[-1]
+    
+    remove_last_value(values)
+
+    assert len(values) == 2
+
+
 def test_docstrings():
     assert delay.__doc__ is not None
